@@ -1,22 +1,17 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import App from "./App";
-import { Provider } from "react-redux";
-import { store } from "../../store";
+import { renderWithProviders } from "../../utils/testUtils";
 
 describe("Given an App component", () => {
   describe("When rendered", () => {
-    test("Then it should show the text 'Hello world!", () => {
-      const expectedText = /hello world!/i;
+    test("Then it should show Juancas logo", () => {
+      const expectedText = "juancas logo";
 
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>
-      );
+      renderWithProviders(<App />);
 
-      const text = screen.getByText(expectedText);
+      const logo = screen.getByRole("img", { name: expectedText });
 
-      expect(text).toBeInTheDocument();
+      expect(logo).toBeInTheDocument();
     });
   });
 });
