@@ -1,5 +1,11 @@
+import RegisterPageStyled from "./RegisterPageStyled";
+
 const RegisterPage = (): React.ReactElement => {
-  return <h1>Crea tu cuenta</h1>;
+  return (
+    <RegisterPageStyled>
+      <h1 className="title">Crea tu cuenta</h1>
+    </RegisterPageStyled>
+  );
 };
 
 export default RegisterPage;
