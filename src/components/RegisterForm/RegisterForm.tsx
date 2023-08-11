@@ -1,31 +1,34 @@
+import RegisterFormStyled from "./RegisterFormStyled";
+
 const RegisterForm = (): React.ReactElement => {
   return (
-    <form className="form" noValidate autoComplete="off">
-      <div className="form-controls">
+    <RegisterFormStyled className="form" noValidate autoComplete="off">
+      <div className="form__controls">
         <label className="form__label" htmlFor="name">
-          Name
+          Nombre
         </label>
         <input className="form__input" type="text" id="name" />
       </div>
-      <div className="form-controls">
+      <div className="form__controls">
         <label className="form__label" htmlFor="lastname">
-          Lastname
+          Apellidos
         </label>
         <input className="form__input" type="text" id="lastname" />
       </div>
-      <div className="form-controls">
+      <div className="form__controls">
         <label className="form__label" htmlFor="username">
-          Name
+          Username
         </label>
         <input className="form__input" type="text" id="username" />
       </div>
-      <div className="form-controls">
+      <div className="form__controls">
         <label className="form__label" htmlFor="password">
           Password
         </label>
         <input className="form__input" type="password" id="password" />
       </div>
-    </form>
+      <button className="button">Registrar</button>
+    </RegisterFormStyled>
   );
 };
 
