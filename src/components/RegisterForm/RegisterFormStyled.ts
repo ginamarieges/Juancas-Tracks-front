@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 const RegisterFormStyled = styled.form`
   padding: 20px 0;
-  min-width: 320px;
   color: ${(props) => props.theme.color.text};
   display: flex;
   flex-direction: column;
