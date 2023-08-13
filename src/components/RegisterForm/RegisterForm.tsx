@@ -1,8 +1,12 @@
 import { useState } from "react";
 import RegisterFormStyled from "./RegisterFormStyled";
-import { UserStructure } from "../../store/user/types";
+import { UserStructure } from "../../store/user/types.ts";
 
-const RegisterForm = (): React.ReactElement => {
+interface RegisterProps {
+  onSubmit: (userData: UserStructure) => void;
+}
+
+const RegisterForm = ({ onSubmit }: RegisterProps): React.ReactElement => {
   const initialUserData: UserStructure = {
     lastname: "",
     name: "",
@@ -18,8 +22,19 @@ const RegisterForm = (): React.ReactElement => {
       [event?.target.id]: event?.target.value,
     });
   };
+
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit(userData);
+    setUserData(initialUserData);
+  };
   return (
-    <RegisterFormStyled className="form" noValidate autoComplete="off">
+    <RegisterFormStyled
+      className="form"
+      noValidate
+      autoComplete="off"
+      onSubmit={handleOnSubmit}
+    >
       <div className="form__controls">
         <label className="form__label" htmlFor="name">
           Nombre
@@ -68,7 +83,9 @@ const RegisterForm = (): React.ReactElement => {
           onChange={onChangeData}
         />
       </div>
-      <button className="button">Registrar</button>
+      <button className="button" onClick={() => onSubmit}>
+        Registrar
+      </button>
     </RegisterFormStyled>
   );
 };
