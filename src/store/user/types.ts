@@ -4,3 +4,7 @@ export interface UserStructure {
   username: string;
   password: string;
 }
+
+export interface UserData extends UserStructure {
+  id: string;
+}

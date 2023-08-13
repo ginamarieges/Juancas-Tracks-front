@@ -9,7 +9,7 @@ const useUser = () => {
 
       return data;
     } catch (error) {
-      throw error as Error;
+      throw (error as Error).message;
     }
   };
 
