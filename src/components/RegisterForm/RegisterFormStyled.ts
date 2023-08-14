@@ -5,6 +5,7 @@ const RegisterFormStyled = styled.form`
   color: ${(props) => props.theme.color.text};
   display: flex;
   flex-direction: column;
+
   .form {
     &__controls {
       display: flex;
