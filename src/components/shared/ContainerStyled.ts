@@ -7,6 +7,10 @@ const ContainerStyled = styled.div`
   min-height: 100vh;
   min-width: 320px;
   background-color: ${(props) => props.theme.color.primary};
+
+  @media (min-width: 600px) {
+    padding: 0 100px;
+  }
 `;
 
 export default ContainerStyled;
