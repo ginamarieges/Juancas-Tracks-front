@@ -21,6 +21,11 @@ const RegisterFormStyled = styled.form`
       padding: 10px;
       background-color: ${(props) => props.theme.color.secondary};
       border: none;
+      @media (min-width: 600px) {
+        width: 270px;
+        background-color: ${(props) => props.theme.color.primary};
+        border: 1px solid ${(props) => props.theme.color.text};
+      }
     }
   }
 
