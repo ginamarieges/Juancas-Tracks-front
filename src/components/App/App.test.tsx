@@ -5,7 +5,7 @@ import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 describe("Given an App component", () => {
   describe("When rendered", () => {
     test("Then it should show Juancas logo", () => {
-      const expectedText = "juancas logo";
+      const expectedText = "small juancas logo";
 
       renderWithProviders(wrapWithRouter(<App />));
 
