@@ -4,7 +4,7 @@ import Header from "./Header";
 describe("Given a Header component", () => {
   describe("When it is rendered", () => {
     test("Then it should show Juancas logo", () => {
-      const expectedLogo = "juancas logo";
+      const expectedLogo = "small juancas logo";
 
       render(<Header />);
 

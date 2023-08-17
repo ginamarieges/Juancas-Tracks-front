@@ -4,12 +4,14 @@ const RegisterPageStyled = styled.section`
   @media (min-width: 600px) {
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: 30px;
     justify-content: space-around;
     background-color: ${(props) => props.theme.color.secondary};
     align-items: center;
     max-width: 1300px;
     min-width: 1000px;
+    border: ${(props) => props.theme.color.text} solid 1px;
+    box-shadow: 2px 2px 30px ${(props) => props.theme.color.text};
   }
   .title {
     text-transform: uppercase;
