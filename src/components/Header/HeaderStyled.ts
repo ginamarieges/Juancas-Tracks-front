@@ -15,6 +15,8 @@ const HeaderStyled = styled.header`
   @media (min-width: 600px) {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+    width: 600px;
   }
 `;
 

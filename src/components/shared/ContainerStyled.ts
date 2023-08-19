@@ -8,7 +8,7 @@ const ContainerStyled = styled.div`
   background-color: ${(props) => props.theme.color.primary};
 
   @media (min-width: 600px) {
-    padding: 0 100px;
+    padding: 0 100px 100px 100px;
   }
 `;
 
