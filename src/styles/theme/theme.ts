@@ -6,7 +6,7 @@ const theme: DefaultTheme = {
     text: "#1C110A",
     primary: "#50A2A7",
     secondary: "#E4D6A7",
-    nonSelectedButtons: "#E4D6A7",
+    nonSelectedButtons: "#E9B44C",
     selected: "#9B2915",
   },
   fonts: {
