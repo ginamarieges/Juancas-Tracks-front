@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import RegisterForm from "./RegisterForm";
 import { renderWithProviders } from "../../utils/testUtils";
@@ -33,6 +34,40 @@ describe("Given a RegisterForm component", () => {
       const button = screen.getByRole("button", { name: buttonText });
 
       expect(button).toBeInTheDocument();
+    });
+
+    test("Then the button should be disabled", () => {
+      const buttonText = "Registrar";
+      renderWithProviders(<RegisterForm onSubmit={onSubmit} />);
+
+      const button = screen.getByRole("button", { name: buttonText });
+
+      expect(button).toBeDisabled();
+    });
+  });
+
+  describe("When it is rendered and all the fields are field", () => {
+    test("Then the button should be enabled", async () => {
+      const nameText = "Nombre";
+      const lastnameText = "Apellidos";
+      const usernameText = "Username";
+      const passwordText = "Password";
+      const buttonText = "Registrar";
+
+      renderWithProviders(<RegisterForm onSubmit={onSubmit} />);
+
+      const nameField = screen.getByLabelText(nameText);
+      const lastnameField = screen.getByLabelText(lastnameText);
+      const usernameField = screen.getByLabelText(usernameText);
+      const passwordField = screen.getByLabelText(passwordText);
+      const button = screen.getByRole("button", { name: buttonText });
+
+      await userEvent.type(nameField, "Ana");
+      await userEvent.type(lastnameField, "Banana");
+      await userEvent.type(usernameField, "Andana");
+      await userEvent.type(passwordField, "Palangana");
+
+      expect(button).toBeEnabled();
     });
   });
 });

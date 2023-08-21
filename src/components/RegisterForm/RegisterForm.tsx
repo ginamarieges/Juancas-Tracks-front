@@ -23,6 +23,12 @@ const RegisterForm = ({ onSubmit }: RegisterProps): React.ReactElement => {
     });
   };
 
+  const isReady =
+    userData.name !== "" &&
+    userData.lastname !== "" &&
+    userData.username !== "" &&
+    userData.password !== "";
+
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(userData);
@@ -83,7 +89,7 @@ const RegisterForm = ({ onSubmit }: RegisterProps): React.ReactElement => {
           onChange={onChangeData}
         />
       </div>
-      <button className="button" onClick={() => onSubmit}>
+      <button className="button" onClick={() => onSubmit} disabled={!isReady}>
         Registrar
       </button>
     </RegisterFormStyled>
