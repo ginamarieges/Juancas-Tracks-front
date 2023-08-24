@@ -1,6 +1,8 @@
+import LoginFormStyled from "./LoginFormStyled";
+
 const LoginForm = (): React.ReactElement => {
   return (
-    <form autoComplete="off" noValidate className="form">
+    <LoginFormStyled autoComplete="off" noValidate className="form">
       <div className="form__controls">
         <label className="form__label" htmlFor="username">
           Username
@@ -16,7 +18,7 @@ const LoginForm = (): React.ReactElement => {
       </div>
 
       <button className="button">Enviar</button>
-    </form>
+    </LoginFormStyled>
   );
 };
 export default LoginForm;
