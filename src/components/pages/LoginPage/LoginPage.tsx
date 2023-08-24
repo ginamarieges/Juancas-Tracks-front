@@ -1,5 +1,11 @@
+import LoginPageStyled from "./LoginPageStyled";
+
 const LoginPage = (): React.ReactElement => {
-  return <h1 className="title">Accede a tu cuenta</h1>;
+  return (
+    <LoginPageStyled>
+      <h1 className="title">Accede a tu cuenta</h1>
+    </LoginPageStyled>
+  );
 };
 
 export default LoginPage;
