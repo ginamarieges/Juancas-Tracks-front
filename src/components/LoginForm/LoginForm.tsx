@@ -1,8 +1,12 @@
 import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
-import { UserStructure } from "../../store/user/types";
+import { UserData, UserStructure } from "../../store/user/types";
 
-const LoginForm = (): React.ReactElement => {
+interface LoginProps {
+  onSubmit: (userCredentials: Partial<UserData>) => void;
+}
+
+const LoginForm = ({ onSubmit }: LoginProps): React.ReactElement => {
   const initialCredentials: Partial<UserStructure> = {
     username: "",
     password: "",
@@ -19,6 +23,7 @@ const LoginForm = (): React.ReactElement => {
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    onSubmit(userCredentials);
     setUserCredentials(initialCredentials);
   };
 
