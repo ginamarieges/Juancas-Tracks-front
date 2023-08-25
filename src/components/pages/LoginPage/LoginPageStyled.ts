@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-const RegisterPageStyled = styled.section`
+const LoginPageStyled = styled.section`
   @media (min-width: 600px) {
     display: flex;
     flex-direction: column;
@@ -25,4 +25,4 @@ const RegisterPageStyled = styled.section`
   }
 `;
 
-export default RegisterPageStyled;
+export default LoginPageStyled;

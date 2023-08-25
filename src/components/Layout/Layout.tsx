@@ -9,7 +9,8 @@ const Layout = (): React.ReactElement => {
     <ContainerStyled>
       <Header />
       <Outlet />
-      {location.pathname === paths.register || <Navbar />}
+      {location.pathname === paths.register ||
+        location.pathname === paths.login || <Navbar />}
     </ContainerStyled>
   );
 };
