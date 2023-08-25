@@ -13,7 +13,24 @@ const useUser = () => {
     }
   };
 
-  return { registerUser };
+  const getUserToken = async (
+    userCredentials: Partial<UserStructure>
+  ): Promise<string> => {
+    try {
+      const {
+        data: { token },
+      } = await axios.post<{ token: string }>(
+        `${apiUrl}/user/login`,
+        userCredentials
+      );
+
+      return token;
+    } catch {
+      throw new Error("Error in login");
+    }
+  };
+
+  return { registerUser, getUserToken };
 };
 
 export default useUser;
