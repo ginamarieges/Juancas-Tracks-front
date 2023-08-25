@@ -1,7 +1,11 @@
 import { renderHook } from "@testing-library/react";
 import { UserStructure } from "../../store/user/types";
 import useUser from "./useUser";
-import { registerUserMock } from "../../mocks/userMocks";
+import {
+  loginCredentialsMock,
+  registerUserMock,
+  tokenMock,
+} from "../../mocks/userMocks";
 import { wrapper } from "../../utils/testUtils";
 
 describe("Given a useUser function", () => {
@@ -25,6 +29,22 @@ describe("Given a useUser function", () => {
       const expectedUser = registerUserMock;
 
       expect(newUser).toStrictEqual({ newUser: expectedUser });
+    });
+  });
+  describe("When the getUserToken function is called with valid Gina's credentials", () => {
+    test("Then it should return the token", async () => {
+      const expectedToken = tokenMock;
+      const userCredentials = loginCredentialsMock;
+
+      const {
+        result: {
+          current: { getUserToken },
+        },
+      } = renderHook(() => useUser(), { wrapper: wrapper });
+
+      const token = await getUserToken(userCredentials);
+
+      expect(token).toBe(expectedToken);
     });
   });
 });
