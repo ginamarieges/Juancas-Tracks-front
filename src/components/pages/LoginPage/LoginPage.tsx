@@ -7,11 +7,13 @@ import LoginForm from "../../LoginForm/LoginForm";
 import LoginPageStyled from "./LoginPageStyled";
 import { paths } from "../../../routers/paths/paths";
 import { loginUserActionCreator } from "../../../store/user/userSlice";
+import useLocalStorage from "../../../hooks/useLocalStorage/useLocalStorage";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
   const { getTokenData } = useToken();
   const dispatch = useAppDispatch();
+  const { setToken } = useLocalStorage();
   const navigate = useNavigate();
 
   const onSubmit = async (userCredentials: Partial<UserData>) => {
@@ -26,6 +28,7 @@ const LoginPage = (): React.ReactElement => {
       ...userData,
       token,
     };
+    setToken("token", token);
     dispatch(loginUserActionCreator(tokenData));
   };
 
