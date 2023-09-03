@@ -36,6 +36,9 @@ const LoginPage = (): React.ReactElement => {
     <LoginPageStyled>
       <h1 className="title">Accede a tu cuenta</h1>
       <LoginForm onSubmit={onSubmit} />
+      <a className="register" href={paths.register}>
+        Si aún no tienes cuenta, REGISTRATE!
+      </a>
     </LoginPageStyled>
   );
 };
