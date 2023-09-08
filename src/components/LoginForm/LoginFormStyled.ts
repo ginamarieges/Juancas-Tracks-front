@@ -20,11 +20,10 @@ const LoginFormStyled = styled.form`
     &__input {
       padding: 10px;
       background-color: ${(props) => props.theme.color.secondary};
-      border: none;
+      border: 1px solid ${(props) => props.theme.color.text};
       @media (min-width: 600px) {
         width: 270px;
         background-color: ${(props) => props.theme.color.primary};
-        border: 1px solid ${(props) => props.theme.color.text};
       }
     }
   }
@@ -36,8 +35,20 @@ const LoginFormStyled = styled.form`
     border-radius: 25px;
     border: 1px solid ${(props) => props.theme.color.text};
     margin-top: 20px;
-    background-color: transparent;
+    background-color: ${(props) => props.theme.color.nonSelectedButtons};
     font-weight: bold;
+
+    :disabled {
+      opacity: 0.5;
+    }
+
+    @media (min-width: 600px) {
+      background-color: ${(props) => props.theme.color.primary};
+
+      :disabled {
+        opacity: 0.5;
+      }
+    }
   }
 `;
 

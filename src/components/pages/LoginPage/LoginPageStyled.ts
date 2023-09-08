@@ -23,6 +23,10 @@ const LoginPageStyled = styled.section`
       color: ${(props) => props.theme.color.primary};
     }
   }
+
+  .register {
+    padding-bottom: 20px;
+  }
 `;
 
 export default LoginPageStyled;
