@@ -47,7 +47,30 @@ describe("Given a RegisterForm component", () => {
   });
 
   describe("When it is rendered and all the fields are field", () => {
+    const nameText = "Nombre";
+    const lastnameText = "Apellidos";
+    const usernameText = "Username";
+    const passwordText = "Password";
+    const buttonText = "Registrar";
     test("Then the button should be enabled", async () => {
+      renderWithProviders(<RegisterForm onSubmit={onSubmit} />);
+
+      const nameField = screen.getByLabelText(nameText);
+      const lastnameField = screen.getByLabelText(lastnameText);
+      const usernameField = screen.getByLabelText(usernameText);
+      const passwordField = screen.getByLabelText(passwordText);
+      const button = screen.getByRole("button", { name: buttonText });
+
+      await userEvent.type(nameField, "Ana");
+      await userEvent.type(lastnameField, "Banana");
+      await userEvent.type(usernameField, "Andana");
+      await userEvent.type(passwordField, "Palangana");
+
+      expect(button).toBeEnabled();
+    });
+  });
+  describe("When it is rendered, the fields are field, and the user clicks the button", () => {
+    test("Then the button should be disabled ant the fields empty", async () => {
       const nameText = "Nombre";
       const lastnameText = "Apellidos";
       const usernameText = "Username";
@@ -67,7 +90,13 @@ describe("Given a RegisterForm component", () => {
       await userEvent.type(usernameField, "Andana");
       await userEvent.type(passwordField, "Palangana");
 
-      expect(button).toBeEnabled();
+      await userEvent.click(button);
+
+      expect(button).toBeDisabled();
+      expect(nameField).toHaveValue("");
+      expect(lastnameField).toHaveValue("");
+      expect(usernameField).toHaveValue("");
+      expect(passwordField).toHaveValue("");
     });
   });
 });
