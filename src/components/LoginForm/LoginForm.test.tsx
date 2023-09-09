@@ -46,4 +46,23 @@ describe("Given a LoginForm component", () => {
       expect(button).toBeEnabled();
     });
   });
+  describe("When it is rendered and the fields are field and the user clicks the button", () => {
+    test("Then the fields should be empty and the button disabled", async () => {
+      renderWithProviders(<LoginForm onSubmit={onSubmit} />);
+
+      const usernameField = screen.getByLabelText(usenrameText);
+      const passwordField = screen.getByLabelText(passwordText);
+
+      await userEvent.type(usernameField, "Gina");
+      await userEvent.type(passwordField, "hello");
+
+      const button = screen.getByRole("button", { name: buttonText });
+
+      await userEvent.click(button);
+
+      expect(button).toBeDisabled();
+      expect(passwordField).toHaveValue("");
+      expect(usernameField).toHaveValue("");
+    });
+  });
 });
