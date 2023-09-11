@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import NavbarStyled from "./NavbarStyled";
+import { paths } from "../../routers/paths/paths";
 
 const Navbar = (): React.ReactElement => {
   return (
@@ -8,7 +9,7 @@ const Navbar = (): React.ReactElement => {
         <li>
           <NavLink
             className="navbar__icon"
-            to={"/home"}
+            to={paths.home}
             aria-label="home"
             title="home"
           >
@@ -28,7 +29,7 @@ const Navbar = (): React.ReactElement => {
         <li>
           <NavLink
             className="navbar__icon"
-            to={"/login"}
+            to={paths.login}
             aria-label="login"
             title="login"
           >
