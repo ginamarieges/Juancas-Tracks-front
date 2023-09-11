@@ -1,5 +1,11 @@
+import HomePageStyled from "./HomePageStyled";
+
 const HomePage = (): React.ReactElement => {
-  return <h1 className="title">Todos tus vinilos</h1>;
+  return (
+    <HomePageStyled>
+      <h1 className="title">Todos tus vinilos</h1>
+    </HomePageStyled>
+  );
 };
 
 export default HomePage;

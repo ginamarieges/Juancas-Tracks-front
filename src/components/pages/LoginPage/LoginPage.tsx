@@ -30,6 +30,7 @@ const LoginPage = (): React.ReactElement => {
     };
     setToken("token", token);
     dispatch(loginUserActionCreator(tokenData));
+    navigate(paths.home);
   };
 
   return (
