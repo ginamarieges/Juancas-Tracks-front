@@ -25,8 +25,8 @@ const useUser = () => {
       );
 
       return token;
-    } catch {
-      throw new Error("Error in login");
+    } catch (error) {
+      throw (error as Error).message;
     }
   };
 

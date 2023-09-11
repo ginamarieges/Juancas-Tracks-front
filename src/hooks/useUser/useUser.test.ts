@@ -60,6 +60,7 @@ describe("Given a useUser function", () => {
       expect(hasError).toBe(true);
     });
   });
+
   describe("When the getUserToken function is called with valid Gina's credentials", () => {
     test("Then it should return the token", async () => {
       const expectedToken = tokenMock;
@@ -74,6 +75,29 @@ describe("Given a useUser function", () => {
       const token = await getUserToken(userCredentials);
 
       expect(token).toBe(expectedToken);
+    });
+  });
+  describe("When the getUserToken function is called with an invalid Gina's credentials", () => {
+    test("Then it should throw an error", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const ginasCredentials: Partial<UserStructure> = {
+        username: "Gabita",
+        password: "hello",
+      };
+
+      const {
+        result: {
+          current: { getUserToken },
+        },
+      } = renderHook(() => useUser(), { wrapper: wrapper });
+      let hasError = false;
+      try {
+        await getUserToken(ginasCredentials);
+      } catch (error) {
+        hasError = true;
+      }
+      expect(hasError).toBe(true);
     });
   });
 });
