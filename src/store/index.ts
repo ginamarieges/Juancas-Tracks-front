@@ -5,9 +5,11 @@ import {
 } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./user/userSlice";
+import { tracksReducer } from "./tracks/tracksSlice";
 
 const rootReducer = combineReducers({
   userStore: userReducer,
+  tracksStore: tracksReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
