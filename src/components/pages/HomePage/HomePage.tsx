@@ -4,6 +4,7 @@ import useTracks from "../../../hooks/useTracks/useTracks";
 import { useDispatch } from "react-redux";
 import { loadTracksActionCreator } from "../../../store/tracks/tracksSlice";
 import { useAppSelector } from "../../../store";
+import TrackCard from "../../TrackCard/TrackCard";
 
 const HomePage = (): React.ReactElement => {
   const { getTracks } = useTracks();
@@ -24,7 +25,9 @@ const HomePage = (): React.ReactElement => {
       <h1 className="title">Todos tus vinilos</h1>
       <ul className="list">
         {tracks.map((tracks) => (
-          <li key={tracks.id}>name: {tracks.album} </li>
+          <li key={tracks.id}>
+            <TrackCard track={tracks} />
+          </li>
         ))}
       </ul>
     </HomePageStyled>
