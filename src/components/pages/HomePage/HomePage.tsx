@@ -3,13 +3,11 @@ import HomePageStyled from "./HomePageStyled";
 import useTracks from "../../../hooks/useTracks/useTracks";
 import { useDispatch } from "react-redux";
 import { loadTracksActionCreator } from "../../../store/tracks/tracksSlice";
-import { useAppSelector } from "../../../store";
-import TrackCard from "../../TrackCard/TrackCard";
+import TrackList from "../../TrackList/TrackList";
 
 const HomePage = (): React.ReactElement => {
   const { getTracks } = useTracks();
   const dispatch = useDispatch();
-  const { tracks } = useAppSelector((state) => state.tracksStore);
 
   useEffect(() => {
     (async () => {
@@ -23,13 +21,7 @@ const HomePage = (): React.ReactElement => {
   return (
     <HomePageStyled>
       <h1 className="title">Todos tus vinilos</h1>
-      <ul className="list">
-        {tracks.map((tracks) => (
-          <li key={tracks.id}>
-            <TrackCard track={tracks} />
-          </li>
-        ))}
-      </ul>
+      <TrackList />
     </HomePageStyled>
   );
 };
