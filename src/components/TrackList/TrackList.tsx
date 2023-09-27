@@ -14,6 +14,7 @@ const TrackList = (): React.ReactElement => {
           </li>
         ))}
       </ul>
+      {tracks.length === 0 && <span>No se ha encontrado ningún vinilo...</span>}
     </TrackListStyled>
   );
 };

@@ -9,6 +9,7 @@ const NavbarStyled = styled.div`
   z-index: 1;
 
   .navbar {
+    min-width: 280px;
     display: flex;
     flex-direction: row;
     align-items: center;
