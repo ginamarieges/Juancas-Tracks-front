@@ -1,6 +1,10 @@
 import { styled } from "styled-components";
 
 const HomePageStyled = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
   @media (min-width: 600px) {
     display: flex;
     flex-direction: column;
