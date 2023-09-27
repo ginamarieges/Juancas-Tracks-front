@@ -6,8 +6,10 @@ const NavbarStyled = styled.div`
   bottom: 0;
   right: 0;
   padding: 10px 20px;
+  z-index: 1;
 
   .navbar {
+    min-width: 280px;
     display: flex;
     flex-direction: row;
     align-items: center;
