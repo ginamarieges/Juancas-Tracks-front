@@ -5,6 +5,11 @@ const TrackListStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    @media (min-width: 600px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 `;
 
