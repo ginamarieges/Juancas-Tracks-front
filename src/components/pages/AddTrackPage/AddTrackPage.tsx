@@ -1,6 +1,6 @@
 import Form from "../../Form/Form";
 
-const AddTrack = (): React.ReactElement => {
+const AddTrackPage = (): React.ReactElement => {
   return (
     <>
       <h1>Añade tu vinilo</h1>
@@ -9,4 +9,4 @@ const AddTrack = (): React.ReactElement => {
   );
 };
 
-export default AddTrack;
+export default AddTrackPage;

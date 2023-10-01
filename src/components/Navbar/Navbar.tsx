@@ -26,7 +26,7 @@ const Navbar = (): React.ReactElement => {
         <li>
           <NavLink
             className="navbar__icon"
-            to={"/add-track"}
+            to={paths.add}
             aria-label="add-track"
             title="add-track"
           >
