@@ -8,7 +8,7 @@ const Form = (): React.ReactElement => {
       noValidate
     >
       <div className="form__controls">
-        <label htmlFor="album">Album</label>
+        <label htmlFor="album">Álbum</label>
         <input type="text" name="album" id="album" />
       </div>
       <div className="form__controls">
