@@ -9,6 +9,8 @@ const ContainerStyled = styled.div`
 
   @media (min-width: 600px) {
     padding: 0 100px 100px 100px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
