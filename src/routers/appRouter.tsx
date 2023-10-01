@@ -4,6 +4,7 @@ import RegisterPage from "../components/pages/ReqisterPage/RegisterPage";
 import { paths } from "./paths/paths";
 import LoginPage from "../components/pages/LoginPage/LoginPage";
 import HomePage from "../components/pages/HomePage/HomePage";
+import AddTrackPage from "../components/pages/AddTrackPage/AddTrackPage";
 
 const routes: RouteObject[] = [
   {
@@ -17,6 +18,7 @@ const routes: RouteObject[] = [
       { path: paths.register, element: <RegisterPage /> },
       { path: paths.login, element: <LoginPage /> },
       { path: paths.home, element: <HomePage /> },
+      { path: paths.add, element: <AddTrackPage /> },
     ],
   },
 ];
