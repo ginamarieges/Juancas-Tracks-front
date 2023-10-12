@@ -1,6 +1,8 @@
+import FormStyled from "./FormStyled";
+
 const Form = (): React.ReactElement => {
   return (
-    <form
+    <FormStyled
       className="form"
       action="/upload_files"
       encType="multipart/form-data"
@@ -9,23 +11,39 @@ const Form = (): React.ReactElement => {
     >
       <div className="form__controls">
         <label htmlFor="album">Álbum</label>
-        <input type="text" name="album" id="album" />
+        <input className="form__input" type="text" name="album" id="album" />
       </div>
       <div className="form__controls">
         <label htmlFor="singer">Cantante</label>
-        <input type="text" name="singer" id="singer" />
+        <input className="form__input" type="text" name="singer" id="singer" />
       </div>
-      <div className="form__controls">
+      <div className="checkbox">
         <label htmlFor="repeat">¿Repetido?</label>
-        <input type="checkbox" name="repeat" id="repeat" />
+        <input
+          className="checkbox__input"
+          type="checkbox"
+          name="repeat"
+          id="repeat"
+        />
       </div>
       <div className="form__controls">
         <label htmlFor="musicType">Tipo de música</label>
-        <input type="text" name="musicType" id="musicType" />
+        <input
+          className="form__input"
+          type="text"
+          name="musicType"
+          id="musicType"
+        />
       </div>
       <div className="form__controls">
         <label htmlFor="notes">Notas</label>
-        <textarea name="notes" id="notes" cols={30} rows={7}></textarea>
+        <textarea
+          className="form__input"
+          name="notes"
+          id="notes"
+          cols={30}
+          rows={7}
+        ></textarea>
       </div>
       <div className="form__controls">
         <label htmlFor="image">Selecciona una imagen</label>
@@ -33,11 +51,17 @@ const Form = (): React.ReactElement => {
       </div>
       <div className="form__controls">
         <label htmlFor="songs">Canciones</label>
-        <textarea name="songs" id="songs" cols={30} rows={7}></textarea>
+        <textarea
+          className="form__input"
+          name="songs"
+          id="songs"
+          cols={30}
+          rows={7}
+        ></textarea>
       </div>
 
       <button className="form__button">Enviar</button>
-    </form>
+    </FormStyled>
   );
 };
 
