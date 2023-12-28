@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { TracksStateStructure } from "./types";
+import { TrackStructure, TracksStateStructure } from "./types";
 
 const initialState: TracksStateStructure = {
   tracks: [],
@@ -16,10 +16,20 @@ const tracksSlice = createSlice({
       ...currentState,
       tracks: action.payload.tracks,
     }),
+    addTrack: (
+      currentState: TracksStateStructure,
+      action: PayloadAction<TrackStructure>
+    ): TracksStateStructure => ({
+      ...currentState,
+      tracks: [...currentState.tracks, action.payload],
+    }),
   },
 });
 
-export const { loadTracks: loadTracksActionCreator } = tracksSlice.actions;
+export const {
+  loadTracks: loadTracksActionCreator,
+  addTrack: addTrackActionCreator,
+} = tracksSlice.actions;
 
 export const tracksReducer = tracksSlice.reducer;
 
