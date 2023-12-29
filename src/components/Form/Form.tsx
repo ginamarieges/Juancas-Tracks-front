@@ -2,7 +2,11 @@ import { useState } from "react";
 import FormStyled from "./FormStyled";
 import { TrackStructure } from "../../store/tracks/types";
 
-const Form = (): React.ReactElement => {
+interface FormProps {
+  onSubmit: (trackData: TrackStructure) => void;
+}
+
+const Form = ({ onSubmit }: FormProps): React.ReactElement => {
   const initialTrackData: TrackStructure = {
     album: "",
     id: "",
@@ -36,6 +40,7 @@ const Form = (): React.ReactElement => {
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    onSubmit(trackData);
     setTrackData(initialTrackData);
   };
   return (
