@@ -32,16 +32,8 @@ const FormStyled = styled.form`
       background-color: ${(props) => props.theme.color.nonSelectedButtons};
       font-weight: bold;
 
-      :disabled {
-        opacity: 0.5;
-      }
-
       @media (min-width: 600px) {
         background-color: ${(props) => props.theme.color.primary};
-
-        :disabled {
-          opacity: 0.5;
-        }
       }
     }
   }

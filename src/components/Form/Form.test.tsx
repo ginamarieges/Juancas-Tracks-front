@@ -1,18 +1,20 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import Form from "./Form";
+import { vi } from "vitest";
 
 describe("Given a Form component", () => {
+  const onSubmit = vi.fn();
   describe("When it is rendered", () => {
     test("Then it should show the album, singer, notes, image, music type and songs inputs", () => {
       const albumLabel = "Álbum";
       const singerLabel = "Cantante";
       const notesLabel = "Notas";
       const musicTypeLabel = "Tipo de música";
-      const imageLabel = "Selecciona una imagen";
+      const imageLabel = "Portada";
       const songsLabel = "Canciones";
 
-      renderWithProviders(<Form />);
+      renderWithProviders(<Form onSubmit={onSubmit} />);
 
       const albumField = screen.getByLabelText(albumLabel);
       const singerField = screen.getByLabelText(singerLabel);
@@ -31,7 +33,7 @@ describe("Given a Form component", () => {
     test("Then it should show the button with the text 'Enviar'", () => {
       const buttonText = "Enviar";
 
-      renderWithProviders(<Form />);
+      renderWithProviders(<Form onSubmit={onSubmit} />);
 
       const button = screen.getByRole("button", { name: buttonText });
 
